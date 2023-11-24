@@ -8,7 +8,7 @@ class Departamento(models.Model):
     piso = models.IntegerField(null=True, blank=True)
     depto = models.CharField(max_length=40)
     descripcion = models.CharField(max_length=100, null=True, blank=True)
-    imagen = models.ImageField(null=True, blank=True, upload_to="imagendepto/")
+    #imagen = models.ImageField(null=True, blank=True, upload_to="")
 
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

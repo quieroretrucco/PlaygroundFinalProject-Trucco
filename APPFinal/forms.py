@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class DepartamentoFormulario(forms.ModelForm):
     class Meta:
         model = Departamento
-        fields = ['barrio', 'piso', 'depto', 'direccion', 'descripcion', 'imagen']
+        fields = ['barrio', 'piso', 'depto', 'direccion', 'descripcion']
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
