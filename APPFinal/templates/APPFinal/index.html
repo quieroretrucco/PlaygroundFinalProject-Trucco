@@ -1,0 +1,24 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block tituloQueCambia %}
+<style>
+    .centered-content {
+      text-align: center;
+    }
+</style>
+<div class="centered-content">
+<h1>BIENVENIDA</h1>
+</div>
+{% endblock tituloQueCambia  %}
+{% block contenidoQueCambia %}
+<div class="centered-content">
+{% if mensaje %}
+    <p>
+        {{mensaje}}
+    </p>
+{% endif %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <p>Acá está toda la oferta de Stay Flex</p>
+</div>
+{% endblock contenidoQueCambia  %}

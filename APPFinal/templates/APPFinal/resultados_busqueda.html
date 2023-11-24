@@ -1,0 +1,22 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block  tituloQueCambia %}<div style="text-align: center;"><h1> Estamos buscando en: {{barrio}}</h1></div>{% endblock tituloQueCambia  %}
+{% block    contenidoQueCambia %}
+
+{% if departamento %}
+
+<div style="text-align: center;">
+<ul>
+{% for depto in departamento %}
+    <li>{{depto.barrio}}</li>
+    <li>Dirección: {{depto.direccion}}</li>
+    <li>Piso: {{depto.piso}}</li>
+    <li>Depto: {{depto.depto}}</li>
+    <li>Descripción: {{depto.descripcion}}</li>
+
+{% endfor %}
+</ul>
+</div>
+
+{% endif %}
+{% endblock contenidoQueCambia  %}

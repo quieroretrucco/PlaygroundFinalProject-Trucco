@@ -1,0 +1,16 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block  tituloQueCambia %}
+<div style="text-align: center;">
+<h1>Ingresá el Barrio</h1>
+</div>
+{% endblock tituloQueCambia  %}
+{% block    contenidoQueCambia %}
+
+<div style="text-align: center;">
+<form action="buscar/" method='GET'>
+    <input type="text" name="barrio" id="barrio">
+    <input type="submit" value="Buscar">
+</form>
+</div>
+{% endblock contenidoQueCambia  %}  

@@ -1,0 +1,12 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Borrar Departamento</h1>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    Estas seguro que deseas borrar el departamento de {{departamento.direccion}} en {{departamento.barrio}}  ??
+    <input type="submit" value="Eliminar">
+</form>
+{% endblock contenidoQueCambia  %}

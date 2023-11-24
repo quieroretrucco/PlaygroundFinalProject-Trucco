@@ -1,0 +1,28 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Listado de Departamentos</h1>
+
+
+<a href={% url 'NuevoDepartamento' %}>Nuevo Departamento</a>
+{% for departamento in departamentos %}
+    <li>Dirección: {{departamento.direccion}}
+        <p>
+            {% if not request.user.is_authenticated %}
+
+            |   <a href="{% url 'DetalleDepartamento' departamento.pk %}">Ver</a>
+            |
+                {% else %}
+            |   <a href="{% url 'DetalleDepartamento' departamento.pk %}">Ver</a>
+            |    <a href="{% url 'EditarDepartamento' departamento.pk %}">Editar</a>
+            |
+                <a href="{% url 'BorrarDepartamento' departamento.pk %}">Borrar</a>
+                {% endif %}
+
+
+        </p>
+    </li>
+
+
+{% endfor %}
+{% endblock contenidoQueCambia  %}

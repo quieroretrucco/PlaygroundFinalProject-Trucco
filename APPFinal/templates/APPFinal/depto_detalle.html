@@ -1,0 +1,14 @@
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Departamento Detalle</h1>
+    <p>Barrio: <i>{{ departamento.barrio }}</i></p>
+    <p>Dirección: <i>{{ departamento.direccion }}</i></p>
+    <p>Piso: <i>{{ departamento.piso }}</i></p>
+    <p>Departamento: <i>{{ departamento.depto }}</i></p>
+    <p>Descripción: <i>{{ departamento.descripcion }}</i></p>
+    <p><i>{{ departamento.imagen }}</i></p>
+<p>
+    <a href="{% url 'ListaDepartamentos' %}">Regresar</a>
+</p>
+{% endblock contenidoQueCambia %}

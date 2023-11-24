@@ -1,0 +1,66 @@
+<!-- 
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block  tituloQueCambia %}<div style="text-align: center;"><h1>Formulario-Agregar Departamento</h1></div>{% endblock tituloQueCambia  %}
+
+    {% block    contenidoQueCambia %}
+    {% if miFormulario.errors %}
+    <p style="color: red">Estan mal los datos, revisar</p>
+{% endif %}
+<div style="text-align: center;">
+<form action="" method="POST" style="text-align: center;">
+    {% csrf_token %}
+
+    <table style="margin: 0 auto;">
+        {{miFormulario.as_table}}
+      </table>
+    <input type="submit" value="Enviar">
+</form>
+</div>
+{% endblock contenidoQueCambia  %}
+-->
+{% extends "APPFinal/padre.html" %}
+{% load static %}
+{% block tituloQueCambia %}<div style="text-align: center;"><h1>Formulario-Agregar Departamento</h1></div>{% endblock tituloQueCambia %}
+
+{% block contenidoQueCambia %}
+{% if miFormulario.errors %}
+    <p style="color: red">Estan mal los datos, revisar</p>
+{% endif %}
+<div style="text-align: center;">
+    <form action="" method="POST" style="text-align: center;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Renderiza manualmente cada campo -->
+        <table style="margin: 0 auto;">
+            <tr>
+                <th>{{ miFormulario.barrio.label_tag }}</th>
+                <td>{{ miFormulario.barrio }}</td>
+            </tr>
+            <tr>
+                <th>{{ miFormulario.direccion.label_tag }}</th>
+                <td>{{ miFormulario.direccion }}</td>
+            </tr>
+            <tr>
+                <th>{{ miFormulario.piso.label_tag }}</th>
+                <td>{{ miFormulario.piso }}</td>
+            </tr>
+            <tr>
+                <th>{{ miFormulario.depto.label_tag }}</th>
+                <td>{{ miFormulario.depto }}</td>
+            </tr>
+            <tr>
+                <th>{{ miFormulario.descripcion.label_tag }}</th>
+                <td>{{ miFormulario.descripcion }}</td>
+            </tr>
+
+            <!-- Agrega el campo de imagen -->
+            <tr>
+                <th>{{ miFormulario.imagen.label_tag }}</th>
+                <td>{{ miFormulario.imagen }}</td>
+            </tr>
+            <!-- Agrega otros campos según sea necesario -->
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+{% endblock contenidoQueCambia %}
