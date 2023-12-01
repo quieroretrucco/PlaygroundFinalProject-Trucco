@@ -93,21 +93,30 @@ def login_request(request):
     return render(request, "APPFinal/login.html", {"form": form})
 
 def register(request):
-      if request.method == 'POST':
-            form = UserRegisterForm(request.POST)
-            if form.is_valid():
-                  username = form.cleaned_data['username']
-                  form.save()
-                  return render(request,"APPFinal/index.html" ,  {"mensaje":"Usuario Creado :)"})
-      else:
-            form = UserRegisterForm()        
-      return render(request,"APPFinal/registro.html" ,  {"form":form})
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            
+            # Create an Avatar object for the newly registered user
+            avatar = Avatar.objects.create(user=user)
+            
+            return render(request, "APPFinal/index.html", {"mensaje": "Usuario Creado :)"})
+    else:
+        form = UserRegisterForm()        
+    return render(request, "APPFinal/registro.html", {"form": form})
 
 
 def editarPerfil(request):
     usuario = request.user
+    
+    # Check if the user has an associated Avatar object
+    if not hasattr(usuario, 'avatar'):
+        # If not, create an Avatar object for the user
+        Avatar.objects.create(user=usuario)
+    
     if request.method == 'POST':
-        miFormulario = UserEditForm(request.POST, request.FILES, instance=request.user)
+        miFormulario = UserEditForm(request.POST, request.FILES, instance=usuario)
         if miFormulario.is_valid():
             if miFormulario.cleaned_data.get('imagen'):
                 usuario.avatar.imagen = miFormulario.cleaned_data.get('imagen')
@@ -115,9 +124,9 @@ def editarPerfil(request):
             miFormulario.save()
             return render(request, "APPFinal/index.html")
     else:
-        miFormulario = UserEditForm(initial={'imagen': usuario.avatar.imagen}, instance=request.user)
+        miFormulario = UserEditForm(initial={'imagen': usuario.avatar.imagen}, instance=usuario)
+    
     return render(request, "APPFinal/editarperfil.html", {"miFormulario": miFormulario, "usuario": usuario})
-
 
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
     template_name = 'APPFinal/cambiar_contrasenia.html'

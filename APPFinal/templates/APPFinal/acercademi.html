@@ -27,7 +27,10 @@
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-5">
-            <div class="row gx-5 justify-content-center">
+            <div class="row gx-5 justify-content-center align-items-center flex-column"> <!-- Updated the structure to use flex-column -->
+                <div class="col-lg-3 mb-3"> <!-- Adjusted the column width for the image and added mb-3 for margin-bottom -->
+                    <img src="{% static 'APPFinal/images/perfil.jpg' %}" class="d-block mx-auto mb-3 rounded-circle" alt="Profile Pic" style="width: 200px; height: 200px;"> <!-- Increased the image size -->
+                </div>
                 <div class="col-lg-6">
                     <div class="text-center my-5">
                         <h1 class="display-5 fw-bolder text-white mb-2">Fermín Trucco</h1>
@@ -46,19 +49,19 @@
         <div class="container px-5">
             <div class="row">
                 <!-- Image 1 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 text-center">
                     <i class="bi bi-geo-alt-fill d-block mx-auto mb-3" style="font-size: 3rem;"></i>
                     <h5 class="mt-2 text-center">Temperley, Conurbano Sur</h5>
                 </div>
     
                 <!-- Image 2 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 text-center">
                     <i class="bi bi-person-fill" style="font-size: 3rem;"></i>
                     <h5 class="mt-2 text-center">26 años</h5>
                 </div>
     
                 <!-- Image 3 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 text-center">
                     <i class="bi bi-heart-fill" style="font-size: 3rem;"></i>
                     <h5 class="mt-2 text-center">Hincha de Temperley</h5>
                 </div>
@@ -66,19 +69,19 @@
                 <!-- Bottom Row -->
                 <div class="row">
                     <!-- Image 1 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4 mb-4 text-center">
                         <i class="bi bi-award" style="font-size: 3rem;"></i>
                         <h5 class="mt-2 text-center">Economista</h5>
                     </div>
         
                     <!-- Image 2 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4 mb-4 text-center">
                         <i class="bi bi-music-note-beamed" style="font-size: 3rem;"></i>
                         <h5 class="mt-2 text-center">Guitarra y bajo</h5>
                     </div>
         
                     <!-- Image 3 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4 mb-4 text-center">
                         <i class="bi bi-bullseye" style="font-size: 3rem;"></i>
                         <h5 class="mt-2 text-center">Futbol y padel</h5>
                     </div>
