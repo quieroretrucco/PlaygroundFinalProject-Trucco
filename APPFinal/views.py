@@ -127,3 +127,6 @@ def serve_avatar(request, user_id):
     avatar = get_object_or_404(Avatar, user_id=user_id)
     response = HttpResponse(avatar.imagen, content_type='image/jpeg')
     return response
+
+def acerca_de_mi(request):
+    return render(request, 'APPFinal/acercademi.html')
